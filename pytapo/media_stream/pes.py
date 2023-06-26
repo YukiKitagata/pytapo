@@ -76,6 +76,10 @@ class PES:
                 )
             elif self.StreamType == self.StreamTypePCMATapo:
                 self.Sequence += 1
+
+                if self.Sequence >= 2 ** 16:
+                    self.Sequence = 0
+
                 self.Timestamp += len(payload)
 
                 streamType = None
